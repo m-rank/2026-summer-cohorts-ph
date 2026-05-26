@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Cohort Discussion Guide 2026 — Players Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231D9E75'/><circle cx='22' cy='22' r='7' fill='white'/><circle cx='42' cy='22' r='7' fill='white'/><circle cx='32' cy='38' r='7' fill='white'/><line x1='22' y1='22' x2='42' y2='22' stroke='white' stroke-width='2.5' stroke-linecap='round'/><line x1='22' y1='22' x2='32' y2='38' stroke='white' stroke-width='2.5' stroke-linecap='round'/><line x1='42' y1='22' x2='32' y2='38' stroke='white' stroke-width='2.5' stroke-linecap='round'/></svg>">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text-primary: #1a1a1a;
+    --text-secondary: #666;
+    --text-muted: #999;
+    --bg: #fafaf8;
+    --surface: #fff;
+    --surface-2: #f4f3ef;
+    --border: rgba(0,0,0,0.09);
+    --border-strong: rgba(0,0,0,0.16);
+    --teal: #1D9E75;
+    --teal-light: #E1F5EE;
+    --teal-dark: #0F6E56;
+    --purple: #7F77DD;
+    --purple-light: #EEEDFE;
+    --purple-dark: #3C3489;
+    --coral: #D85A30;
+    --coral-light: #FAECE7;
+    --coral-dark: #712B13;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --amber-dark: #633806;
+    --blue: #185FA5;
+    --blue-light: #E6F1FB;
+    --blue-dark: #0C447C;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-primary: #f0ede8;
+      --text-secondary: #a09d97;
+      --text-muted: #6b6864;
+      --bg: #1a1917;
+      --surface: #232220;
+      --surface-2: #2a2927;
+      --border: rgba(255,255,255,0.07);
+      --border-strong: rgba(255,255,255,0.14);
+      --teal-light: #0a3326;
+      --teal-dark: #9FE1CB;
+      --purple-light: #1e1b40;
+      --purple-dark: #AFA9EC;
+      --coral-light: #3a1a0d;
+      --coral-dark: #F0997B;
+      --amber-light: #2e1f07;
+      --amber-dark: #FAC775;
+      --blue-light: #0c2340;
+      --blue-dark: #85B7EB;
+    }
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  .shell {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.5px solid var(--border-strong);
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 0.9rem;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 540px;
+    margin-bottom: 1.25rem;
+  }
+
+  .meta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .pill {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    border: 0.5px solid var(--border-strong);
+    color: var(--text-secondary);
+  }
+
+  /* Timeline */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .tl-item {
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 0.875rem 0.75rem;
+    text-align: center;
+    border: 0.5px solid var(--border);
+  }
+
+  .tl-month { font-size: 10px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+  .tl-date { font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; }
+  .tl-name { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 7px; }
+  .tl-dot { width: 7px; height: 7px; border-radius: 50%; margin: 0 auto; }
+
+  /* Nav */
+  .nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+  .nav-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 8px;
+    border: 0.5px solid var(--border-strong);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    position: relative;
+  }
+
+  .nav-btn:hover:not(.active) { background: var(--surface-2); color: var(--text-primary); }
+
+  .nav-btn.active {
+    background: var(--text-primary);
+    color: var(--bg);
+    border-color: var(--text-primary);
+  }
+
+  .nav-btn.locked { color: var(--text-muted); border-color: var(--border); }
+  .nav-btn.locked:hover { background: var(--surface-2); color: var(--text-secondary); }
+
+  .nav-btn.guide-btn {
+    border-color: var(--teal);
+    color: var(--teal-dark);
+    border-style: dashed;
+  }
+
+  .nav-btn.guide-btn:hover:not(.active) { background: var(--teal-light); color: var(--teal-dark); }
+  .nav-btn.guide-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); border-style: solid; }
+
+  .lock-icon { font-size: 11px; margin-left: 4px; opacity: 0.6; }
+
+  /* Sessions */
+  .session { display: none; }
+  .session.active { display: block; }
+
+  /* Session header */
+  .session-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .session-num {
+    font-family: 'Fraunces', serif;
+    font-size: 50px;
+    font-weight: 400;
+    color: var(--border-strong);
+    line-height: 1;
+    min-width: 56px;
+    user-select: none;
+  }
+
+  .session-meta { flex: 1; padding-top: 4px; }
+  .session-theme { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; }
+
+  h2.session-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(17px, 2.8vw, 22px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .session-date {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Section labels */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  /* Opener */
+  .opener {
+    border-left: 3px solid var(--teal);
+    background: var(--teal-light);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .opener-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-dark); margin-bottom: 5px; }
+  .opener-text { font-family: 'Fraunces', serif; font-size: 16px; font-style: italic; line-height: 1.6; color: var(--text-primary); }
+
+  .note { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.5rem; }
+
+  /* Questions */
+  .q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 0.5rem; }
+
+  .q-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border-strong);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+
+  .q-card.full { grid-column: 1 / -1; }
+
+  .q-label { font-size: 11px; color: var(--text-muted); margin-bottom: 5px; letter-spacing: 0.04em; }
+  .q-text { font-size: 14px; line-height: 1.6; color: var(--text-primary); }
+
+  .value-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    margin-top: 6px;
+    border: 0.5px solid var(--border);
+    letter-spacing: 0.04em;
+  }
+
+  /* Closer */
+  .closer {
+    border-left: 3px solid var(--purple);
+    background: var(--purple-light);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .closer-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple-dark); margin-bottom: 5px; }
+  .closer-text { font-size: 14px; line-height: 1.65; color: var(--text-primary); }
+
+  /* Mission invitation */
+  .mission-box {
+    border: 0.5px solid var(--teal);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1rem;
+    background: var(--teal-light);
+  }
+
+  .mission-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal-dark); margin-bottom: 6px; }
+
+  .mission-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .mission-text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+  .slack-ref {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    background: var(--surface);
+    border: 0.5px solid var(--teal);
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+
+  /* Group note */
+  .group-note {
+    background: var(--surface-2);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .group-note-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 0.4rem; }
+  .group-note-text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+  /* Guide section */
+  h2.guide-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1.75rem;
+  }
+
+  .timing-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 2rem; }
+
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem; }
+
+  .rule-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border-strong);
+    border-radius: 10px;
+    padding: 0.875rem 1rem;
+  }
+
+  .rule-label { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .rule-text { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+
+  .tips { background: var(--surface-2); border-radius: 10px; padding: 1.25rem 1.5rem; }
+
+  .tip {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.65;
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .tip:last-child { border-bottom: none; }
+
+  /* Modal overlay */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    border: 0.5px solid var(--border-strong);
+    text-align: center;
+  }
+
+  .modal-icon { font-size: 32px; margin-bottom: 1rem; }
+
+  .modal-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-body { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.5rem; }
+
+  .modal-primary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 8px;
+    border: none;
+    background: var(--text-primary);
+    color: var(--bg);
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 0.6rem;
+    transition: opacity 0.15s;
+  }
+
+  .modal-primary:hover { opacity: 0.85; }
+
+  .modal-secondary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 4px 0;
+    display: inline-block;
+    margin-top: 2px;
+  }
+
+  .modal-secondary:hover { color: var(--text-secondary); }
+
+  /* Footer */
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 560px) {
+    .shell { padding: 2rem 1.25rem 4rem; }
+    .q-grid, .rules-grid { grid-template-columns: 1fr; }
+    .q-card.full { grid-column: 1; }
+    .timeline { grid-template-columns: repeat(2, 1fr); }
+    .timing-row { grid-template-columns: 1fr; }
+    .session-num { font-size: 38px; min-width: 44px; }
+    footer { flex-direction: column; }
+  }
+
+  @media print {
+    .nav, .modal-overlay { display: none !important; }
+    .session { display: block !important; page-break-before: always; }
+    .session:first-of-type { page-break-before: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Modal -->
+<div class="modal-overlay" id="lockModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-icon">🌱</div>
+    <h2 class="modal-title" id="modalTitle">You're jumping ahead!</h2>
+    <p class="modal-body" id="modalBody">This session opens up on July 1. Each month's guide becomes available at the start of that month — so the conversation stays fresh when you get there.</p>
+    <button class="modal-primary" id="modalGoBack">Take me to the current session</button>
+    <button class="modal-secondary" id="modalPeek">Preview anyway</button>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- Header -->
+  <header class="header">
+    <p class="eyebrow">Players Health · Summer 2026</p>
+    <h1 class="title">Summer Cohort<br>Discussion Guide</h1>
+    <p class="subtitle">Four sessions across the summer to build real connection across our distributed team. Each conversation is yours to shape — come curious, come honest, come as you are.</p>
+    <div class="meta-row">
+      <span class="pill">June – September 2026</span>
+      <span class="pill">45–60 min · monthly</span>
+      <span class="pill">Cross-functional cohorts</span>
+    </div>
+  </header>
+
+  <!-- Timeline -->
+  <div class="timeline" aria-label="Session schedule">
+    <div class="tl-item">
+      <p class="tl-month">Session 1</p>
+      <p class="tl-date">June 19</p>
+      <p class="tl-name">Who We Are</p>
+      <div class="tl-dot" style="background:var(--teal)"></div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-month">Session 2</p>
+      <p class="tl-date">July 17</p>
+      <p class="tl-name">How We Work</p>
+      <div class="tl-dot" style="background:var(--purple)"></div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-month">Session 3</p>
+      <p class="tl-date">August 14</p>
+      <p class="tl-name">Where We're Going</p>
+      <div class="tl-dot" style="background:var(--coral)"></div>
+    </div>
+    <div class="tl-item">
+      <p class="tl-month">Session 4</p>
+      <p class="tl-date">September 11</p>
+      <p class="tl-name">What We Leave Behind</p>
+      <div class="tl-dot" style="background:var(--amber)"></div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" aria-label="Session navigation">
+    <button class="nav-btn active" onclick="handleNav('s1', 6, this)">Session 1 — June</button>
+    <button class="nav-btn" onclick="handleNav('s2', 7, this)" id="navJuly">Session 2 — July <span class="lock-icon" id="lockJuly">🔒</span></button>
+    <button class="nav-btn" onclick="handleNav('s3', 8, this)" id="navAug">Session 3 — August <span class="lock-icon" id="lockAug">🔒</span></button>
+    <button class="nav-btn" onclick="handleNav('s4', 9, this)" id="navSep">Session 4 — September <span class="lock-icon" id="lockSep">🔒</span></button>
+    <button class="nav-btn guide-btn" onclick="handleNav('guide', 0, this)">✦ Facilitation Guide</button>
+  </nav>
+
+  <!-- ═══ SESSION 1 — JUNE ═══ -->
+  <section id="s1" class="session active" aria-label="Session 1 – June 19">
+    <div class="session-header">
+      <div class="session-num" aria-hidden="true">01</div>
+      <div class="session-meta">
+        <p class="session-theme">June 19 · Foundation</p>
+        <h2 class="session-title">Who We Are —<br>Stories Behind the Screens</h2>
+        <span class="tag" style="background:var(--teal-light);color:var(--teal-dark)">Belonging · Identity · Background</span>
+        <p class="session-date">Core value thread: <em>Virtue First · Service</em></p>
+      </div>
+    </div>
+
+    <p class="section-label">To open (5 min)</p>
+    <div class="opener">
+      <p class="opener-label">Start here — everyone answers</p>
+      <p class="opener-text">"Take 30 seconds to think of one word that describes how you showed up to work this week. Not good or bad, just honest."</p>
+    </div>
+    <p class="note">Go around once quickly — just the word, no explanation needed. This gets every voice in the room early and sets a tone of honesty over performance. There are no wrong answers.</p>
+
+    <p class="section-label">Discussion questions (30–40 min)</p>
+    <p class="note">You won't need all five — pick what resonates with your group. Going deep on two or three is better than skimming all of them.</p>
+    <div class="q-grid">
+      <div class="q-card">
+        <p class="q-label">Q1 · Warmup</p>
+        <p class="q-text">What's one thing about where you grew up that still shows up in how you work?</p>
+        <span class="value-tag">Virtue First</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q2 · Career path</p>
+        <p class="q-text">What's the most unexpected job or role you held before this one — and what did it teach you?</p>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q3 · Values</p>
+        <p class="q-text">Think of someone who shaped how you work or show up for others. What's one thing you absorbed from them — maybe without even realizing it?</p>
+        <span class="value-tag">Service</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q4 · Pride</p>
+        <p class="q-text">What's something you're genuinely proud of that has nothing to do with your job title?</p>
+      </div>
+      <div class="q-card full">
+        <p class="q-label">Q5 · Honest ground</p>
+        <p class="q-text">What's something that keeps you going on the hard days — at work or outside of it? It doesn't have to be inspirational, just true.</p>
+        <span class="value-tag">Virtue First</span>
+      </div>
+    </div>
+
+    <p class="section-label">To close (5–10 min)</p>
+    <div class="closer">
+      <p class="closer-label">Closing round</p>
+      <p class="closer-text">Each person shares <strong>one thing they learned about someone else</strong> in the group today that surprised them. Be specific — not "I learned a lot" but "I didn't know that Maya had worked in physical therapy before tech."</p>
+    </div>
+
+    <div class="mission-box">
+      <p class="mission-label">✦ Invitation</p>
+      <p class="mission-title">Share your personal mission statement</p>
+      <p class="mission-text">At Players Health, we each carry a personal mission — the reason we show up. If you feel comfortable, share yours with the group. If you haven't written one yet, try finishing this sentence out loud: <em>"I am at my best when I'm…"</em><br><br>If your group surfaces something worth sharing more widely — a connection, an idea, a moment — bring it to the team in Slack.</p>
+      <a class="slack-ref" href="slack://channel?team=&id=summer-cohorts"># summer-cohorts</a>
+    </div>
+
+    <div class="group-note">
+      <p class="group-note-title">💬 Share back with HR</p>
+      <p class="group-note-text">Did a question spark a great idea or conversation worth keeping? Drop it in <strong>#summer-cohorts</strong> on Slack — the People team reads every post and uses your input to shape future cohorts.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SESSION 2 — JULY ═══ -->
+  <section id="s2" class="session" aria-label="Session 2 – July 17">
+    <div class="session-header">
+      <div class="session-num" aria-hidden="true">02</div>
+      <div class="session-meta">
+        <p class="session-theme">July 17 · Perspective</p>
+        <h2 class="session-title">How We Work —<br>Rhythm, Flow & What Actually Matters</h2>
+        <span class="tag" style="background:var(--purple-light);color:var(--purple-dark)">Collaboration · Process · Meaning</span>
+        <p class="session-date">Core value thread: <em>Operate Like Owners · Go Beyond</em></p>
+      </div>
+    </div>
+
+    <p class="section-label">To open (5 min)</p>
+    <div class="opener">
+      <p class="opener-label">Start here — everyone answers</p>
+      <p class="opener-text">"Describe a recent workday in three words — one for the morning, one for the afternoon, one for how you felt at the end."</p>
+    </div>
+    <p class="note">Quick round-robin — no elaboration needed yet. Just notice the patterns that emerge across the group. You might find you have more in common than you expected.</p>
+
+    <p class="section-label">Discussion questions (30–40 min)</p>
+    <p class="note">Pick what resonates. The best conversations follow the energy in the room — if something takes off, let it.</p>
+    <div class="q-grid">
+      <div class="q-card">
+        <p class="q-label">Q1 · Rhythm</p>
+        <p class="q-text">When do you do your best thinking — and does your actual schedule give you space for that?</p>
+        <span class="value-tag">Operate Like Owners</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q2 · Collaboration</p>
+        <p class="q-text">What's something another team does that you admire — or something your team does that you wish more people knew about?</p>
+        <span class="value-tag">Go Beyond</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q3 · Remote life</p>
+        <p class="q-text">What's something about working remotely that you genuinely love — and what's one habit or ritual you've built to make it work for you?</p>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q4 · Meaning</p>
+        <p class="q-text">Describe a moment at work this year when you felt like what you were doing actually mattered. What made it feel that way?</p>
+        <span class="value-tag">Lead with Mission</span>
+      </div>
+      <div class="q-card full">
+        <p class="q-label">Q5 · One thing</p>
+        <p class="q-text">If you could change one thing about how we work together as a company — not just your team, but all of us — what would it be, and what's one small step toward it?</p>
+        <span class="value-tag">Operate Like Owners</span>
+      </div>
+    </div>
+
+    <p class="section-label">To close (5–10 min)</p>
+    <div class="closer">
+      <p class="closer-label">Closing round</p>
+      <p class="closer-text">Each person completes this sentence: <strong>"Something I want to try or do differently this month, after hearing this conversation, is…"</strong> It doesn't have to be big. It just has to be real.</p>
+    </div>
+
+    <div class="mission-box">
+      <p class="mission-label">✦ Invitation</p>
+      <p class="mission-title">Share your personal mission statement</p>
+      <p class="mission-text">We talk a lot about what we do — this is a chance to talk about <em>why</em>. Share your personal mission statement with the group, or if you're still working on one, share what kind of impact you most want to have in your work.<br><br>If something from today's conversation feels worth sharing more broadly, bring it to the team.</p>
+      <a class="slack-ref" href="slack://channel?team=&id=summer-cohorts"># summer-cohorts</a>
+    </div>
+
+    <div class="group-note">
+      <p class="group-note-title">💬 Share back with HR</p>
+      <p class="group-note-text">Got a good idea or insight from today? The People team wants to hear it — share in <strong>#summer-cohorts</strong> on Slack. Your input genuinely shapes how these cohorts evolve.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SESSION 3 — AUGUST ═══ -->
+  <section id="s3" class="session" aria-label="Session 3 – August 14">
+    <div class="session-header">
+      <div class="session-num" aria-hidden="true">03</div>
+      <div class="session-meta">
+        <p class="session-theme">August 14 · Forward</p>
+        <h2 class="session-title">Where We're Going —<br>Ambition, Change & What's Next</h2>
+        <span class="tag" style="background:var(--coral-light);color:var(--coral-dark)">Growth · Future · Aspiration</span>
+        <p class="session-date">Core value thread: <em>Lead with Mission · Go Beyond</em></p>
+      </div>
+    </div>
+
+    <p class="section-label">To open (5 min)</p>
+    <div class="opener">
+      <p class="opener-label">Start here — everyone answers</p>
+      <p class="opener-text">"If you could fast-forward three years and look back at this summer — what do you hope was the thing that changed?"</p>
+    </div>
+    <p class="note">Let people sit with this one for a moment before anyone speaks. Silence is okay — this question is worth it.</p>
+
+    <p class="section-label">Discussion questions (30–40 min)</p>
+    <p class="note">You've had two sessions together now — let that shared history show up in this conversation. Reference things that came up in June or July if they're relevant.</p>
+    <div class="q-grid">
+      <div class="q-card">
+        <p class="q-label">Q1 · Growth</p>
+        <p class="q-text">What's one skill or capability you want to develop in the next year — and is there anyone in this group who might be able to help?</p>
+        <span class="value-tag">Go Beyond</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q2 · Mission</p>
+        <p class="q-text">What excites you most about what Players Health is building — and where do you feel most connected to that mission in your day-to-day work?</p>
+        <span class="value-tag">Lead with Mission</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q3 · Shift</p>
+        <p class="q-text">What's one assumption about work — or about yourself at work — that's shifted for you over the last couple of years?</p>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q4 · Legacy</p>
+        <p class="q-text">If someone joined the company a year from now and heard your name, what would you want them to hear?</p>
+        <span class="value-tag">Virtue First</span>
+      </div>
+      <div class="q-card full">
+        <p class="q-label">Q5 · Cohort</p>
+        <p class="q-text">Looking back at the conversations we've had this summer — what's one thing about someone in this group that you'll carry with you?</p>
+        <span class="value-tag">Service</span>
+      </div>
+    </div>
+
+    <p class="section-label">To close (5–10 min)</p>
+    <div class="closer">
+      <p class="closer-label">Closing round</p>
+      <p class="closer-text">Each person finishes this sentence: <strong>"One thing I'm going to do differently or more intentionally this fall is…"</strong> Hold each other to it — you've got one more session together.</p>
+    </div>
+
+    <div class="mission-box">
+      <p class="mission-label">✦ Invitation</p>
+      <p class="mission-title">Share your personal mission statement</p>
+      <p class="mission-text">We're in the forward-looking session — what better moment to share the mission that drives you? Read yours aloud if you have one, or share what you want to be known for by the end of this year.<br><br>Drop something great into Slack so it doesn't stay just in this room.</p>
+      <a class="slack-ref" href="slack://channel?team=&id=summer-cohorts"># summer-cohorts</a>
+    </div>
+
+    <div class="group-note">
+      <p class="group-note-title">💬 Share back with HR</p>
+      <p class="group-note-text">An insight, a theme, an idea that came up today? Post it in <strong>#summer-cohorts</strong> — the People team is listening, and your voice shapes what comes next.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SESSION 4 — SEPTEMBER ═══ -->
+  <section id="s4" class="session" aria-label="Session 4 – September 11">
+    <div class="session-header">
+      <div class="session-num" aria-hidden="true">04</div>
+      <div class="session-meta">
+        <p class="session-theme">September 11 · Reflection</p>
+        <h2 class="session-title">What We Leave Behind —<br>Gratitude, Growth & Carrying Each Other Forward</h2>
+        <span class="tag" style="background:var(--amber-light);color:var(--amber-dark)">Reflection · Gratitude · Connection</span>
+        <p class="session-date">Core value thread: <em>Virtue First · Service · Lead with Mission</em></p>
+      </div>
+    </div>
+
+    <p class="section-label">To open (5 min)</p>
+    <div class="opener">
+      <p class="opener-label">Start here — everyone answers</p>
+      <p class="opener-text">"In one sentence — how are you arriving to this last session? What's the word or feeling you're carrying in?"</p>
+    </div>
+    <p class="note">This is your fourth conversation together. Let that count. There's no need to perform — just be present with where you actually are.</p>
+
+    <p class="section-label">Discussion questions (30–40 min)</p>
+    <p class="note">This is the capstone. Let the summer show up in the room — reference what people shared in June, July, and August. This group has history now.</p>
+    <div class="q-grid">
+      <div class="q-card">
+        <p class="q-label">Q1 · Summer in review</p>
+        <p class="q-text">What's one thing that genuinely surprised you this summer — at work, in this group, or about yourself?</p>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q2 · What shifted</p>
+        <p class="q-text">Did anything from our conversations change how you think, how you work, or how you see a colleague? Even something small.</p>
+        <span class="value-tag">Go Beyond</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q3 · For the company</p>
+        <p class="q-text">What's one thing you wish more people at Players Health understood — about your work, your team, or what it actually takes to do this job well?</p>
+        <span class="value-tag">Operate Like Owners</span>
+      </div>
+      <div class="q-card">
+        <p class="q-label">Q4 · Gratitude</p>
+        <p class="q-text">Who in this group showed up for you this summer — in conversation, in curiosity, in just being present? Say it out loud.</p>
+        <span class="value-tag">Service</span>
+      </div>
+      <div class="q-card full">
+        <p class="q-label">Q5 · Into fall</p>
+        <p class="q-text">What's one intention you're taking into the rest of the year — and what would it look like to actually live it out at work?</p>
+        <span class="value-tag">Lead with Mission</span>
+      </div>
+    </div>
+
+    <p class="section-label">To close — the summer send-off (10 min)</p>
+    <div class="closer">
+      <p class="closer-label">Closing ritual</p>
+      <p class="closer-text">Go around the group. Each person says <strong>one word for one other person</strong> — something they genuinely saw in them across these four sessions. Make it specific. Make it true. Names and all.<br><br>Optional: if your group is up for it, take a screenshot together or share a note in Slack to mark the end of summer.</p>
+    </div>
+
+    <div class="mission-box">
+      <p class="mission-label">✦ Invitation — the final one</p>
+      <p class="mission-title">Share your personal mission statement</p>
+      <p class="mission-text">You've spent a summer in conversation with these people. End it by sharing what drives you — your personal mission, your why, the thing you want your work to be about. Say it out loud. Hear each other's.<br><br>And if something from this summer is worth preserving — an insight, a challenge, a connection — share it with the broader team before the window closes.</p>
+      <a class="slack-ref" href="slack://channel?team=&id=summer-cohorts"># summer-cohorts</a>
+    </div>
+
+    <div class="group-note">
+      <p class="group-note-title">💬 One last share back</p>
+      <p class="group-note-text">This is the last session — and the People team especially wants to hear from you. What worked? What would you change? What should next summer's cohorts know? Post in <strong>#summer-cohorts</strong> and help shape what comes next.</p>
+    </div>
+  </section>
+
+  <!-- ═══ FACILITATION GUIDE ═══ -->
+  <section id="guide" class="session" aria-label="Facilitation guide">
+    <h2 class="guide-title">How These Sessions Work</h2>
+
+    <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem;">This guide is for everyone in the cohort — not just whoever is running the conversation. The more everyone understands the structure, the better the discussion tends to go.</p>
+
+    <p class="section-label">Session structure</p>
+    <div class="timing-row">
+      <div class="tl-item">
+        <p class="tl-month">0:00 – 0:05</p>
+        <p class="tl-name">Opening ritual</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-month">0:05 – 0:40</p>
+        <p class="tl-name">Discussion</p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-month">0:40 – 0:55</p>
+        <p class="tl-name">Close + mission</p>
+      </div>
+    </div>
+
+    <p class="section-label">Ground rules — share these at the start of each session</p>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <p class="rule-label">🔒 What's shared stays here</p>
+        <p class="rule-text">These conversations are confidential within the group. What someone shares here isn't for the broader org — unless they choose to share it themselves.</p>
+      </div>
+      <div class="rule-card">
+        <p class="rule-label">🎙 One voice at a time</p>
+        <p class="rule-text">Let people finish. Listen to understand, not to respond. You don't need to fix or solve what someone shares.</p>
+      </div>
+      <div class="rule-card">
+        <p class="rule-label">✋ Pass is always okay</p>
+        <p class="rule-text">No one has to answer any question. If something doesn't feel right to share, a simple "I'll pass on this one" is completely respected.</p>
+      </div>
+      <div class="rule-card">
+        <p class="rule-label">⏱ Depth over coverage</p>
+        <p class="rule-text">You don't need to use every question. A rich conversation on two questions is worth more than surface-level answers on all five.</p>
+      </div>
+    </div>
+
+    <p class="section-label">Tips for whoever is leading the session</p>
+    <div class="tips">
+      <div class="tip"><strong>Go first when things are quiet.</strong> Vulnerability is contagious. If you share something real, others will follow.</div>
+      <div class="tip"><strong>Name what you're noticing.</strong> "I'm hearing a common theme here…" helps people feel seen and moves the conversation forward.</div>
+      <div class="tip"><strong>If one voice is dominating</strong>, gently redirect: "I'd love to hear from someone we haven't heard from yet."</div>
+      <div class="tip"><strong>Follow the energy, not the script.</strong> If a question goes somewhere unexpected and real, stay there. The guide is a map, not a mandate.</div>
+      <div class="tip"><strong>Hold space for where people actually are.</strong> Some folks are having a hard season. Honor that. The goal is honest connection, not performed positivity.</div>
+      <div class="tip"><strong>After Session 4</strong>, consider sending a short personal note to each person in your cohort — one specific thing you noticed or appreciated about them across the summer.</div>
+    </div>
+
+    <div class="group-note" style="margin-top:1.5rem">
+      <p class="group-note-title">💬 The #summer-cohorts Slack channel</p>
+      <p class="group-note-text">Throughout the summer, bring your best moments, ideas, and insights to <strong>#summer-cohorts</strong> on Slack. The People team reads everything posted there and uses it to shape future programs. Your voice in that channel matters.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Players Health · Summer Cohort 2026</span>
+    <span>Shared within cohort groups only</span>
+  </footer>
+
+</div>
+
+<script>
+  // Unlock logic: June always open. July unlocks July 1, Aug unlocks Aug 1, Sep unlocks Sep 1.
+  const now = new Date();
+  const year = now.getFullYear();
+
+  function isUnlocked(month) {
+    if (month === 0) return true; // guide
+    if (month === 6) return true; // June always open
+    return now >= new Date(year, month - 1, 1);
+  }
+
+  const monthNames = ['','January','February','March','April','May','June','July','August','September','October','November','December'];
+  const sessionNames = {7:'July Summer Cohort Discussion Guide', 8:'August Summer Cohort Discussion Guide', 9:'September Summer Cohort Discussion Guide'};
+
+  // Update lock icons on load
+  [7,8,9].forEach(m => {
+    const suffix = {7:'July',8:'Aug',9:'Sep'}[m];
+    const lockEl = document.getElementById('lock'+suffix);
+    if (isUnlocked(m) && lockEl) lockEl.style.display = 'none';
+  });
+
+  let pendingSession = null;
+  let pendingBtn = null;
+  let currentSession = 's1';
+  let currentBtn = document.querySelector('.nav-btn.active');
+
+  function handleNav(sessionId, month, btn) {
+    if (month !== 0 && month !== 6 && !isUnlocked(month)) {
+      // Show warning modal
+      pendingSession = sessionId;
+      pendingBtn = btn;
+      const unlockDate = monthNames[month] + ' 1';
+      document.getElementById('modalBody').textContent =
+        'Access to the ' + sessionNames[month] + ' opens on ' + unlockDate +
+        '. Each session becomes available at the start of that month — so the conversation stays fresh when you arrive.';
+      document.getElementById('lockModal').classList.add('open');
+      return;
+    }
+    switchSession(sessionId, btn);
+  }
+
+  function switchSession(sessionId, btn) {
+    document.querySelectorAll('.session').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(sessionId).classList.add('active');
+    btn.classList.add('active');
+    currentSession = sessionId;
+    currentBtn = btn;
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  document.getElementById('modalGoBack').addEventListener('click', () => {
+    document.getElementById('lockModal').classList.remove('open');
+    pendingSession = null;
+    pendingBtn = null;
+  });
+
+  document.getElementById('modalPeek').addEventListener('click', () => {
+    document.getElementById('lockModal').classList.remove('open');
+    if (pendingSession && pendingBtn) {
+      switchSession(pendingSession, pendingBtn);
+    }
+    pendingSession = null;
+    pendingBtn = null;
+  });
+
+  // Close modal on overlay click
+  document.getElementById('lockModal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('lockModal')) {
+      document.getElementById('lockModal').classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
